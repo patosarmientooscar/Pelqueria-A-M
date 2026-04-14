@@ -179,7 +179,7 @@ ul { list-style: none; }
 }
 
 .nav-logo img {
-  height: 96px;
+  height: 52px;
   width: auto;
   object-fit: contain;
   mix-blend-mode: screen;
@@ -420,9 +420,9 @@ ul { list-style: none; }
   margin-bottom: 2rem;
 }
 .hero-logo-img {
-  height: 340px;
+  height: 200px;
   width: auto;
-  max-width: 720px;
+  max-width: 600px;
   object-fit: contain;
   mix-blend-mode: screen;
   filter: drop-shadow(0 0 40px rgba(201,168,76,0.65));
@@ -1157,7 +1157,7 @@ ul { list-style: none; }
 }
 
 .footer-logo {
-  height: 100px;
+  height: 150px;
   width: auto;
   object-fit: contain;
   margin-bottom: 1.2rem;
@@ -1325,11 +1325,11 @@ ul { list-style: none; }
   .hamburger { display: flex; }
   .navbar { padding: 12px 0; }
   .navbar.scrolled { padding: 10px 0; }
-  .nav-logo img { height: 64px; }
+  .nav-logo img { height: 44px; }
 
   /* Hero */
   .hero { padding: 100px 16px 60px; min-height: 100svh; }
-  .hero-logo-img { height: 200px; max-width: 90vw; }
+  .hero-logo-img { height: 160px; max-width: 90vw; }
   .hero-title { font-size: clamp(1.7rem, 7vw, 2.8rem); }
   .hero-brand { margin-bottom: 1.5rem; }
   .hero-sub { font-size: 0.8rem; letter-spacing: 0.18em; margin-bottom: 1.8rem; }
@@ -1384,7 +1384,7 @@ ul { list-style: none; }
   /* Footer */
   .footer-grid { grid-template-columns: 1fr; gap: 28px; }
   .footer-top { padding: 48px 0 32px; }
-  .footer-logo { height: 72px; }
+  .footer-logo { height: 110px; }
   .footer-bottom .container { gap: 6px; }
   .footer-bottom p { font-size: 0.75rem; }
   .footer-seo-links { display: none; }
@@ -1397,9 +1397,9 @@ ul { list-style: none; }
 @media (max-width: 480px) {
   .container { padding: 0 16px; }
 
-  .nav-logo img { height: 54px; }
+  .nav-logo img { height: 38px; }
 
-  .hero-logo-img { height: 160px; }
+  .hero-logo-img { height: 130px; }
   .hero-title { font-size: clamp(1.5rem, 8vw, 2rem); }
   .hero-sub { font-size: 0.72rem; letter-spacing: 0.12em; }
 
@@ -1418,6 +1418,6 @@ ul { list-style: none; }
 /* ── LANDSCAPE PHONE ───────────────────────── */
 @media (max-width: 768px) and (orientation: landscape) {
   .hero { min-height: auto; padding: 80px 16px 48px; }
-  .hero-logo-img { height: 130px; }
+  .hero-logo-img { height: 110px; }
   .hero-title { font-size: 1.6rem; }
 }
