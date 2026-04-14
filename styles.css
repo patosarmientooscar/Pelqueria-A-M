@@ -581,93 +581,6 @@ ul { list-style: none; }
   to   { transform: translateX(-50%); }
 }
 
-/* ── GLOW / SPOTLIGHT CARD ──────────────────── */
-
-/* Global CSS vars updated by JS on pointermove */
-:root {
-  --x: 0; --y: 0; --xp: 0.5; --yp: 0.5;
-}
-
-[data-glow] {
-  --base:           40;
-  --spread:         20;
-  --radius:         16;
-  --border:         2;
-  --size:           220;
-  --outer:          1;
-  --backdrop:       hsl(0 0% 8% / 0.85);
-  --backup-border:  rgba(201,168,76,0.18);
-  --border-size:    calc(var(--border) * 1px);
-  --spotlight-size: calc(var(--size) * 1px);
-  --hue:            calc(var(--base) + (var(--xp, 0.5) * var(--spread, 0)));
-
-  background-image: radial-gradient(
-    var(--spotlight-size) var(--spotlight-size) at
-    calc(var(--x, 0) * 1px) calc(var(--y, 0) * 1px),
-    hsl(var(--hue) 90% 70% / 0.12), transparent
-  );
-  background-color: var(--backdrop);
-  background-size: calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)));
-  background-position: 50% 50%;
-  border: var(--border-size) solid var(--backup-border);
-  border-radius: calc(var(--radius) * 1px);
-  position: relative;
-  touch-action: none;
-}
-
-[data-glow]::before,
-[data-glow]::after {
-  pointer-events: none;
-  content: "";
-  position: absolute;
-  inset: calc(var(--border-size) * -1);
-  border: var(--border-size) solid transparent;
-  border-radius: calc(var(--radius) * 1px);
-  background-size: calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)));
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
-  -webkit-mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
-  mask-clip: padding-box, border-box;
-  -webkit-mask-clip: padding-box, border-box;
-  mask-composite: intersect;
-  -webkit-mask-composite: destination-in;
-}
-
-[data-glow]::before {
-  background-image: radial-gradient(
-    calc(var(--spotlight-size) * 0.75) calc(var(--spotlight-size) * 0.75) at
-    calc(var(--x, 0) * 1px) calc(var(--y, 0) * 1px),
-    hsl(var(--hue) 90% 55% / 1), transparent 100%
-  );
-  filter: brightness(2);
-}
-
-[data-glow]::after {
-  background-image: radial-gradient(
-    calc(var(--spotlight-size) * 0.5) calc(var(--spotlight-size) * 0.5) at
-    calc(var(--x, 0) * 1px) calc(var(--y, 0) * 1px),
-    hsl(0 100% 100% / 0.9), transparent 100%
-  );
-}
-
-/* Inner glow orb */
-.card-glow-orb[data-glow] {
-  position: absolute;
-  inset: 0;
-  border-radius: calc(var(--radius) * 1px);
-  border: none;
-  background: none;
-  pointer-events: none;
-  will-change: filter;
-  opacity: var(--outer, 1);
-  border-width: calc(var(--border-size) * 20);
-  filter: blur(calc(var(--border-size) * 10));
-}
-.card-glow-orb[data-glow]::before {
-  inset: -10px;
-  border-width: 10px;
-}
 
 /* ── CARD CONTENT ───────────────────────────── */
 .servicio-card {
@@ -680,11 +593,16 @@ ul { list-style: none; }
   justify-content: space-between;
   text-align: center;
   cursor: default;
-  transition: transform 0.3s ease;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background: var(--dark2);
+  border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 16px;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
-.servicio-card:hover { transform: translateY(-6px); }
+.servicio-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(201,168,76,0.45);
+  box-shadow: 0 8px 32px rgba(201,168,76,0.15);
+}
 
 .card-body { flex: 1; display: flex; flex-direction: column; align-items: center; }
 
