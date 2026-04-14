@@ -8,21 +8,27 @@
 (function initGlowTracker() {
   const root = document.documentElement;
 
-  // Mouse / pointer
+  function updateCards(clientX, clientY) {
+    // Global hue shift (viewport-relative)
+    root.style.setProperty('--xp', (clientX / window.innerWidth).toFixed(3));
+    root.style.setProperty('--yp', (clientY / window.innerHeight).toFixed(3));
+
+    // Per-card coordinates — relative to each card so transforms don't break it
+    document.querySelectorAll('[data-glow].servicio-card').forEach(card => {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty('--x', (clientX - rect.left).toFixed(1));
+      card.style.setProperty('--y', (clientY - rect.top).toFixed(1));
+      card.style.setProperty('--xp', ((clientX - rect.left) / rect.width).toFixed(3));
+    });
+  }
+
   document.addEventListener('pointermove', (e) => {
-    root.style.setProperty('--x',  e.clientX.toFixed(1));
-    root.style.setProperty('--y',  e.clientY.toFixed(1));
-    root.style.setProperty('--xp', (e.clientX / window.innerWidth).toFixed(3));
-    root.style.setProperty('--yp', (e.clientY / window.innerHeight).toFixed(3));
+    updateCards(e.clientX, e.clientY);
   }, { passive: true });
 
-  // Touch (mobile)
   document.addEventListener('touchmove', (e) => {
     const t = e.touches[0];
-    root.style.setProperty('--x',  t.clientX.toFixed(1));
-    root.style.setProperty('--y',  t.clientY.toFixed(1));
-    root.style.setProperty('--xp', (t.clientX / window.innerWidth).toFixed(3));
-    root.style.setProperty('--yp', (t.clientY / window.innerHeight).toFixed(3));
+    updateCards(t.clientX, t.clientY);
   }, { passive: true });
 })();
 

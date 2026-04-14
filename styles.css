@@ -607,7 +607,6 @@ ul { list-style: none; }
     hsl(var(--hue) 90% 70% / 0.12), transparent
   );
   background-color: var(--backdrop);
-  background-attachment: fixed;
   background-size: calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)));
   background-position: 50% 50%;
   border: var(--border-size) solid var(--backup-border);
@@ -624,7 +623,6 @@ ul { list-style: none; }
   inset: calc(var(--border-size) * -1);
   border: var(--border-size) solid transparent;
   border-radius: calc(var(--radius) * 1px);
-  background-attachment: fixed;
   background-size: calc(100% + (2 * var(--border-size))) calc(100% + (2 * var(--border-size)));
   background-repeat: no-repeat;
   background-position: 50% 50%;
