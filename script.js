@@ -4,6 +4,29 @@
 
 'use strict';
 
+/* ── SPOTLIGHT / GLOW CARD TRACKER ─────────── */
+(function initGlowTracker() {
+  const root = document.documentElement;
+
+  // Mouse / pointer
+  document.addEventListener('pointermove', (e) => {
+    root.style.setProperty('--x',  e.clientX.toFixed(1));
+    root.style.setProperty('--y',  e.clientY.toFixed(1));
+    root.style.setProperty('--xp', (e.clientX / window.innerWidth).toFixed(3));
+    root.style.setProperty('--yp', (e.clientY / window.innerHeight).toFixed(3));
+  }, { passive: true });
+
+  // Touch (mobile)
+  document.addEventListener('touchmove', (e) => {
+    const t = e.touches[0];
+    root.style.setProperty('--x',  t.clientX.toFixed(1));
+    root.style.setProperty('--y',  t.clientY.toFixed(1));
+    root.style.setProperty('--xp', (t.clientX / window.innerWidth).toFixed(3));
+    root.style.setProperty('--yp', (t.clientY / window.innerHeight).toFixed(3));
+  }, { passive: true });
+})();
+
+
 /* ── NAVBAR SCROLL EFFECT ───────────────────── */
 (function initNavbar() {
   const navbar = document.getElementById('navbar');
