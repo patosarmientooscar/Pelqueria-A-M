@@ -231,6 +231,25 @@ ul { list-style: none; }
 .nav-cta:hover { transform: translateY(-2px); box-shadow: var(--shadow-gold); }
 .nav-cta::after { display: none !important; }
 
+/* Instagram icon in the navbar (desktop: inside .nav-links, mobile: next to the hamburger) */
+.nav-links a.nav-ig,
+.nav-ig-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(201,168,76,0.45);
+  color: var(--gold);
+  transition: background 0.3s, border-color 0.3s;
+}
+.nav-links a.nav-ig::after { display: none; }
+.nav-links a.nav-ig:hover,
+.nav-ig-mobile:hover { background: rgba(201,168,76,0.15); border-color: var(--gold); color: var(--gold); }
+.nav-ig-mobile { display: none; }
+
 .hamburger {
   display: none;
   flex-direction: column;
@@ -1233,12 +1252,23 @@ ul { list-style: none; }
   .servicios-marquee-track { gap: 18px; }
 }
 
+/* ── NARROW TABLET (≤900px): keep links + Instagram + CTA on one line ── */
+@media (max-width: 900px) {
+  .nav-container { gap: 16px; }
+  .nav-links li { flex-shrink: 0; }
+  .nav-links a { padding: 8px 7px; font-size: 0.84rem; white-space: nowrap; }
+  .nav-links a::after { left: 7px; right: 7px; }
+  .nav-links a.nav-ig { width: 40px; height: 40px; }
+  .nav-cta { padding: 10px 14px !important; }
+}
+
 /* ── MOBILE (≤768px) ───────────────────────── */
 @media (max-width: 768px) {
 
   /* Navbar */
   .nav-links { display: none; }
   .hamburger { display: flex; }
+  .nav-ig-mobile { display: flex; margin-left: auto; margin-right: -8px; }
   .navbar { padding: 12px 0; }
   .navbar.scrolled { padding: 10px 0; }
   .nav-logo img { height: 44px; }
