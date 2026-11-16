@@ -107,68 +107,40 @@
 
 /* ── COUNTER ANIMATION ──────────────────────── */
 (function initCounters() {
-  // The HTML already holds the final number (no-JS fallback). We only count up
-  // from 0 once the stat is actually on screen, and always land on the target.
   const counters = document.querySelectorAll('.stat-n[data-target]');
   if (!counters.length) return;
 
-  const getTarget = el => parseInt(el.getAttribute('data-target'), 10);
-  const finish = el => { el.textContent = getTarget(el); };
+  const animateCounter = (el) => {
+    const target = parseInt(el.getAttribute('data-target'), 10);
+    const duration = 1800;
+    const step = 16;
+    const increment = target / (duration / step);
+    let current = 0;
 
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduceMotion || !('IntersectionObserver' in window)) {
-    counters.forEach(finish);
-    return;
-  }
-
-  const DURATION = 1600;
-  const easeOut = t => 1 - Math.pow(1 - t, 3);
-
-  const animateCounter = el => {
-    const target = getTarget(el);
-    if (!Number.isFinite(target)) return;
-    let start = null;
-    const tick = now => {
-      if (start === null) start = now;
-      const t = Math.min((now - start) / DURATION, 1);
-      el.textContent = t < 1 ? Math.round(target * easeOut(t)) : target;
-      if (t < 1) requestAnimationFrame(tick);
-    };
-    el.textContent = '0';
-    requestAnimationFrame(tick);
-    // Safety net: rAF is paused in background tabs — never leave a partial value.
-    setTimeout(() => finish(el), DURATION + 400);
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        el.textContent = target;
+        clearInterval(timer);
+      } else {
+        el.textContent = Math.floor(current);
+      }
+    }, step);
   };
 
   const observer = new IntersectionObserver(
     entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          observer.unobserve(entry.target);
           animateCounter(entry.target);
+          observer.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0, rootMargin: '0px 0px -10% 0px' }
+    { threshold: 0.5 }
   );
 
   counters.forEach(el => observer.observe(el));
-})();
-
-
-/* ── FLOATING CALL BUTTON: hidden while the hero is on screen ── */
-(function initFloatBtn() {
-  const btn  = document.querySelector('.float-btn');
-  const hero = document.getElementById('inicio');
-  if (!btn || !hero || !('IntersectionObserver' in window)) return;
-
-  // Hidden while "Descubre más" (bottom of the hero) is visible; shown once scrolled past it.
-  const observer = new IntersectionObserver(
-    ([entry]) => btn.classList.toggle('is-hidden', entry.isIntersecting),
-    { threshold: 0 }
-  );
-  btn.classList.add('is-hidden');
-  observer.observe(hero.querySelector('.hero-scroll-indicator') || hero);
 })();
 
 

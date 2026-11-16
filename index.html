@@ -32,7 +32,7 @@
   <meta property="og:type" content="business.business">
   <meta property="og:title" content="Amad Peña Barbershop | Peñagrande, Madrid">
   <meta property="og:description" content="Barbería especializada en degradados, cortes y arreglo de barba en Peñagrande, Madrid. Reserva tu cita al 603 29 73 15.">
-  <meta property="og:image" content="https://patosarmientooscar.github.io/Pelqueria-A-M/assets/logo-hero.png">
+  <meta property="og:image" content="assets/logo-hero.png">
   <meta property="og:locale" content="es_ES">
   <meta property="og:site_name" content="Amad Peña Barbershop">
   <meta property="business:contact_data:street_address" content="C/ De la Badera, 36">
@@ -72,8 +72,7 @@
     "priceRange": "€",
     "currenciesAccepted": "EUR",
     "paymentAccepted": "Cash",
-    "image": "https://patosarmientooscar.github.io/Pelqueria-A-M/assets/logo-hero.png",
-    "sameAs": ["https://www.instagram.com/a.m._barberia/"],
+    "image": "assets/logo-hero.png",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "C/ De la Badera, 36",
@@ -197,92 +196,6 @@
 
 <body>
 
-  <!-- SVG sprite: gradients, barber pole, line icons (referenced with <use>) -->
-  <svg class="svg-sprite" width="0" height="0" aria-hidden="true" focusable="false">
-    <defs>
-      <linearGradient id="g-gold" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="#F2D78A"/>
-        <stop offset=".45" stop-color="#C9A84C"/>
-        <stop offset="1" stop-color="#8A6A1F"/>
-      </linearGradient>
-      <linearGradient id="g-gold-cyl" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0" stop-color="#8A6A1F"/>
-        <stop offset=".35" stop-color="#F2D78A"/>
-        <stop offset=".7" stop-color="#C9A84C"/>
-        <stop offset="1" stop-color="#7A5B18"/>
-      </linearGradient>
-      <clipPath id="pole-body"><rect x="9" y="33" width="18" height="56"/></clipPath>
-
-      <symbol id="pole" viewBox="0 0 36 110">
-        <circle cx="18" cy="13" r="10.5" fill="url(#g-gold-cyl)"/>
-        <rect x="13.5" y="22" width="9" height="5" fill="url(#g-gold-cyl)"/>
-        <rect x="6" y="26" width="24" height="7" rx="2.5" fill="url(#g-gold-cyl)"/>
-        <rect x="9" y="33" width="18" height="56" fill="rgba(201,168,76,.12)"/>
-        <g clip-path="url(#pole-body)" stroke="url(#g-gold-cyl)" stroke-width="5.2">
-          <path d="M0 36 36 20M0 49 36 33M0 62 36 46M0 75 36 59M0 88 36 72M0 101 36 85M0 114 36 98"/>
-        </g>
-        <rect x="6" y="89" width="24" height="6.5" rx="2.5" fill="url(#g-gold-cyl)"/>
-        <path d="M9.5 95.5h17l-6 8.6a3 3 0 0 1-5 0z" fill="url(#g-gold-cyl)"/>
-      </symbol>
-
-      <symbol id="i-instagram" viewBox="0 0 24 24">
-        <path fill="currentColor" fill-rule="evenodd" d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.3-3.55a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/>
-      </symbol>
-
-      <!-- Service line icons — 24px grid, stroke from CSS (.card-icon) -->
-      <symbol id="i-scissors" viewBox="0 0 24 24">
-        <circle cx="6" cy="6.5" r="2.75"/><circle cx="6" cy="17.5" r="2.75"/>
-        <path d="M8.2 8.2 20 18.5M8.2 15.8 20 5.5M12.6 12l.01 0"/>
-      </symbol>
-      <symbol id="i-comb" viewBox="0 0 24 24">
-        <path d="M3.5 6.5h17a1 1 0 0 1 1 1v2.5h-19V7.5a1 1 0 0 1 1-1z"/>
-        <path d="M4.5 10v6.5M7.25 10v7.5M10 10v7.5M12.75 10v7.5M15.5 10v7.5M18.25 10v7.5M21 10v5"/>
-      </symbol>
-      <symbol id="i-child" viewBox="0 0 24 24">
-        <circle cx="12" cy="8" r="3.6"/>
-        <path d="M10.2 4.9c.5-1.1 1.6-1.6 2.9-1.3"/>
-        <path d="M5.5 20.5c.4-3.6 3.1-6 6.5-6s6.1 2.4 6.5 6"/>
-      </symbol>
-      <symbol id="i-razor" viewBox="0 0 24 24">
-        <path d="M3 13.2 13.4 4.6a1.6 1.6 0 0 1 2.3.2l.6.7-9.8 10.6H4.4A1.6 1.6 0 0 1 3 13.2z"/>
-        <circle cx="15.6" cy="6.6" r=".9"/>
-        <path d="M16.3 7.6 21 19.4"/>
-        <path d="M5.6 13.4l7.8-6.6"/>
-      </symbol>
-      <symbol id="i-clipper" viewBox="0 0 24 24">
-        <path d="M7.5 3.2v1.8M10 3.2v1.8M12.5 3.2v1.8M15 3.2v1.8M17.5 3.2v1.8"/>
-        <rect x="6" y="5" width="13" height="3.6" rx="1"/>
-        <path d="M7 8.6h11l-1.2 11.2a1.8 1.8 0 0 1-1.8 1.6H10a1.8 1.8 0 0 1-1.8-1.6z"/>
-        <path d="M12.5 12v3.5"/>
-      </symbol>
-      <symbol id="i-brush" viewBox="0 0 24 24">
-        <path d="M8 10.5C7 7.2 8.6 3 12 3s5 4.2 4 7.5z"/>
-        <rect x="7.6" y="10.5" width="8.8" height="2.4" rx=".8"/>
-        <path d="M9.3 12.9h5.4l-.6 6.6a1.8 1.8 0 0 1-1.8 1.6h-.6a1.8 1.8 0 0 1-1.8-1.6z"/>
-      </symbol>
-      <symbol id="i-brow" viewBox="0 0 24 24">
-        <path d="M4 7.6c2.4-1.9 5.2-2.8 8-2.8s5.6.9 8 2.8"/>
-        <path d="M3 14.5c2.4-3 5.4-4.5 9-4.5s6.6 1.5 9 4.5c-2.4 3-5.4 4.5-9 4.5s-6.6-1.5-9-4.5z"/>
-        <circle cx="12" cy="14.5" r="2.3"/>
-      </symbol>
-      <symbol id="i-strands" viewBox="0 0 24 24">
-        <path d="M6.5 3c-1.8 3.4 1.8 5.6 0 9s1.8 5.6 0 9"/>
-        <path d="M12 3c-1.8 3.4 1.8 5.6 0 9s1.8 5.6 0 9"/>
-        <path d="M17.5 3c-1.8 3.4 1.8 5.6 0 9s1.8 5.6 0 9"/>
-      </symbol>
-      <symbol id="i-sparkle" viewBox="0 0 24 24">
-        <path d="M11 4.5l1.5 4.6a2 2 0 0 0 1.3 1.3l4.7 1.6-4.7 1.6a2 2 0 0 0-1.3 1.3L11 19.5l-1.5-4.6a2 2 0 0 0-1.3-1.3L3.5 12l4.7-1.6a2 2 0 0 0 1.3-1.3z"/>
-        <path d="M19 2.8v3.4M17.3 4.5h3.4"/>
-      </symbol>
-      <symbol id="i-dye" viewBox="0 0 24 24">
-        <path d="M3 13h13.5a6.75 6.75 0 0 1-13.5 0z"/>
-        <path d="M5.5 10.2C7 9.1 8.4 9 9.8 9.6"/>
-        <path d="M13 10.8 20.4 3.4"/>
-        <path d="M11.4 12.6l1.6-1.8 1.4 1.3"/>
-      </symbol>
-    </defs>
-  </svg>
-
   <!-- ══════════════════════════════════════════
        NAVBAR
   ══════════════════════════════════════════ -->
@@ -293,10 +206,9 @@
       </a>
       <ul class="nav-links" role="list">
         <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
         <li><a href="#galeria">Galería</a></li>
         <li><a href="#nosotros">Nosotros</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#reviews">Reseñas</a></li>
         <li><a href="#contacto">Contacto</a></li>
         <li>
           <a href="tel:603297315" class="nav-cta" aria-label="Reservar cita llamando al 603 29 73 15">
@@ -322,12 +234,6 @@
       <li><a href="#reviews">Reseñas</a></li>
       <li><a href="#contacto">Contacto</a></li>
       <li><a href="tel:603297315" class="mobile-cta">Reservar Cita · 603 29 73 15</a></li>
-      <li>
-        <a href="https://www.instagram.com/a.m._barberia/" target="_blank" rel="noopener noreferrer" class="mobile-ig" aria-label="Instagram @a.m._barberia (se abre en una pestaña nueva)">
-          <svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-instagram"/></svg>
-          Instagram <span>@a.m._barberia</span>
-        </a>
-      </li>
     </ul>
   </div>
   <div class="mobile-overlay" id="mobileOverlay"></div>
@@ -345,22 +251,7 @@
     <div class="hero-content">
 
       <div class="hero-brand animate-down">
-        <div class="hero-logo" role="img" aria-label="AM Barbería - Barbershop">
-          <img src="assets/logo-laurel.png" alt="" class="hero-laurel" width="170" height="147" aria-hidden="true">
-          <div class="hero-wordmark" aria-hidden="true">
-            <svg class="barber-pole" viewBox="0 0 36 110" focusable="false"><use href="#pole"/></svg>
-            <span class="wordmark-text">B<span class="wm-a">A<svg class="wm-razor" viewBox="0 0 76 100" focusable="false">
-                <!-- straight razor opened as an inverted V: blade (left) + scale/handle (right) -->
-                <path d="M38 13C37.4 9 39 6.2 38.2 1.5" fill="none" stroke="url(#g-gold)" stroke-width="2.6" stroke-linecap="round"/>
-                <path d="M36.4 11.5 3.6 91.6a4.4 4.4 0 0 0 4 6.2h2.6a3 3 0 0 0 2.8-1.9L40.6 16z" fill="url(#g-gold)"/>
-                <path d="M35.8 15.8 6.6 89" fill="none" stroke="#F6E2A6" stroke-width=".9" stroke-linecap="round" opacity=".55"/>
-                <path d="M39 12.5 71.6 93.4" fill="none" stroke="url(#g-gold)" stroke-width="5.4" stroke-linecap="round"/>
-                <circle cx="38.2" cy="13.4" r="3.6" fill="#8A6A1F"/>
-                <circle cx="38.2" cy="13.4" r="1.7" fill="#F2D78A"/>
-              </svg></span>RBERSHOP</span>
-            <svg class="barber-pole" viewBox="0 0 36 110" focusable="false"><use href="#pole"/></svg>
-          </div>
-        </div>
+        <img src="assets/logo-hero.png" alt="Amad Peña Barbershop" class="hero-logo-img">
         <h1 class="hero-title">
           <span class="line1">La Mejor Barbería</span>
           <span class="line2 gold">en Madrid</span>
@@ -443,14 +334,6 @@
         </figure>
 
       </div>
-
-      <div class="galeria-cta">
-        <a href="https://www.instagram.com/a.m._barberia/" target="_blank" rel="noopener noreferrer" class="btn-outline" aria-label="Ver más trabajos en Instagram, @a.m._barberia (se abre en una pestaña nueva)">
-          <svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-instagram"/></svg>
-          <span>Ver más trabajos en Instagram</span>
-          <span class="cta-handle"><span class="cta-sep" aria-hidden="true">·</span> @a.m._barberia</span>
-        </a>
-      </div>
     </div>
   </section>
 
@@ -491,15 +374,15 @@
 
           <div class="stats-row">
             <div class="stat-item">
-              <span class="stat-value"><span class="stat-n" data-target="500">500</span><span class="stat-suffix">+</span></span>
+              <span class="stat-n" data-target="500">0</span><span class="stat-suffix">+</span>
               <span class="stat-l">Clientes satisfechos</span>
             </div>
             <div class="stat-item">
-              <span class="stat-value"><span class="stat-n">5</span><span class="stat-suffix">★</span></span>
+              <span class="stat-n">5</span><span class="stat-suffix">★</span>
               <span class="stat-l">Valoración media</span>
             </div>
             <div class="stat-item">
-              <span class="stat-value"><span class="stat-n" data-target="10">10</span><span class="stat-suffix">+</span></span>
+              <span class="stat-n" data-target="10">0</span><span class="stat-suffix">+</span>
               <span class="stat-l">Años de experiencia</span>
             </div>
           </div>
@@ -535,7 +418,7 @@
         <article class="servicio-card" aria-label="Corte Adultos 10 euros">
           
           <div class="card-body">
-            <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-scissors"/></svg>
+            <div class="card-icon" aria-hidden="true">✂️</div>
             <h3>Corte Adultos</h3>
             <p>Corte clásico o moderno adaptado a tu estilo con acabado perfecto.</p>
           </div>
@@ -545,7 +428,7 @@
         <article class="servicio-card" aria-label="Pelo más Barba 15 euros">
           
           <div class="card-body">
-            <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-comb"/></svg>
+            <div class="card-icon" aria-hidden="true">🪒</div>
             <h3>Pelo + Barba</h3>
             <p>Pack completo: corte de pelo y arreglo de barba con navaja o máquina.</p>
           </div>
@@ -555,7 +438,7 @@
         <article class="servicio-card" aria-label="Niños hasta 12 años 8 euros">
           
           <div class="card-body">
-            <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-child"/></svg>
+            <div class="card-icon" aria-hidden="true">👦</div>
             <h3>Niños hasta 12 años</h3>
             <p>Cortes especiales para los más pequeños, con paciencia y precisión.</p>
           </div>
@@ -565,7 +448,7 @@
         <article class="servicio-card" aria-label="Arreglo Barba Navaja 7 euros">
           
           <div class="card-body">
-            <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-razor"/></svg>
+            <div class="card-icon" aria-hidden="true">🗡️</div>
             <h3>Arreglo Barba Navaja</h3>
             <p>Perfilado y diseño de barba con navaja de afeitar tradicional.</p>
           </div>
@@ -575,7 +458,7 @@
         <article class="servicio-card" aria-label="Arreglo Barba Máquina 5 euros">
           
           <div class="card-body">
-            <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-clipper"/></svg>
+            <div class="card-icon" aria-hidden="true">⚙️</div>
             <h3>Arreglo Barba Máquina</h3>
             <p>Arreglo y perfilado de barba con máquina de precisión profesional.</p>
           </div>
@@ -585,7 +468,7 @@
         <article class="servicio-card" aria-label="Afeitado Navaja 7 euros">
           
           <div class="card-body">
-            <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-brush"/></svg>
+            <div class="card-icon" aria-hidden="true">💈</div>
             <h3>Afeitado Navaja</h3>
             <p>Afeitado clásico con navaja, espuma y toalla caliente. Ritual de caballero.</p>
           </div>
@@ -595,7 +478,7 @@
         <article class="servicio-card" aria-label="Arreglo Cejas 5 euros">
           
           <div class="card-body">
-            <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-brow"/></svg>
+            <div class="card-icon" aria-hidden="true">👁️</div>
             <h3>Arreglo Cejas</h3>
             <p>Diseño y perfilado de cejas con navaja para un look impecable.</p>
           </div>
@@ -605,7 +488,7 @@
         <article class="servicio-card" aria-label="Mechas 25 euros">
           
           <div class="card-body">
-            <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-strands"/></svg>
+            <div class="card-icon" aria-hidden="true">🎨</div>
             <h3>Mechas</h3>
             <p>Mechas profesionales para darle color y vida a tu cabello.</p>
           </div>
@@ -615,7 +498,7 @@
         <article class="servicio-card" aria-label="Decolorado 25 euros">
           
           <div class="card-body">
-            <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg>
+            <div class="card-icon" aria-hidden="true">✨</div>
             <h3>Decolorado</h3>
             <p>Decoloración profesional con productos de alta calidad y resultado brillante.</p>
           </div>
@@ -625,7 +508,7 @@
         <article class="servicio-card" aria-label="Tinte 20 euros">
           
           <div class="card-body">
-            <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-dye"/></svg>
+            <div class="card-icon" aria-hidden="true">🖌️</div>
             <h3>Tinte</h3>
             <p>Tinte profesional en la gama de colores que mejor te siente.</p>
           </div>
@@ -635,52 +518,52 @@
         <!-- SET 2 — duplicate for seamless infinite loop -->
         <article class="servicio-card" aria-hidden="true">
           
-          <div class="card-body"><svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-scissors"/></svg><h3>Corte Adultos</h3><p>Corte clásico o moderno adaptado a tu estilo con acabado perfecto.</p></div>
+          <div class="card-body"><div class="card-icon">✂️</div><h3>Corte Adultos</h3><p>Corte clásico o moderno adaptado a tu estilo con acabado perfecto.</p></div>
           <div class="precio">10€</div>
         </article>
         <article class="servicio-card" aria-hidden="true">
           
-          <div class="card-body"><svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-comb"/></svg><h3>Pelo + Barba</h3><p>Pack completo: corte de pelo y arreglo de barba con navaja o máquina.</p></div>
+          <div class="card-body"><div class="card-icon">🪒</div><h3>Pelo + Barba</h3><p>Pack completo: corte de pelo y arreglo de barba con navaja o máquina.</p></div>
           <div class="precio">15€</div>
         </article>
         <article class="servicio-card" aria-hidden="true">
           
-          <div class="card-body"><svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-child"/></svg><h3>Niños hasta 12 años</h3><p>Cortes especiales para los más pequeños, con paciencia y precisión.</p></div>
+          <div class="card-body"><div class="card-icon">👦</div><h3>Niños hasta 12 años</h3><p>Cortes especiales para los más pequeños, con paciencia y precisión.</p></div>
           <div class="precio">8€</div>
         </article>
         <article class="servicio-card" aria-hidden="true">
           
-          <div class="card-body"><svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-razor"/></svg><h3>Arreglo Barba Navaja</h3><p>Perfilado y diseño de barba con navaja de afeitar tradicional.</p></div>
+          <div class="card-body"><div class="card-icon">🗡️</div><h3>Arreglo Barba Navaja</h3><p>Perfilado y diseño de barba con navaja de afeitar tradicional.</p></div>
           <div class="precio">7€</div>
         </article>
         <article class="servicio-card" aria-hidden="true">
           
-          <div class="card-body"><svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-clipper"/></svg><h3>Arreglo Barba Máquina</h3><p>Arreglo y perfilado de barba con máquina de precisión profesional.</p></div>
+          <div class="card-body"><div class="card-icon">⚙️</div><h3>Arreglo Barba Máquina</h3><p>Arreglo y perfilado de barba con máquina de precisión profesional.</p></div>
           <div class="precio">5€</div>
         </article>
         <article class="servicio-card" aria-hidden="true">
           
-          <div class="card-body"><svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-brush"/></svg><h3>Afeitado Navaja</h3><p>Afeitado clásico con navaja, espuma y toalla caliente.</p></div>
+          <div class="card-body"><div class="card-icon">💈</div><h3>Afeitado Navaja</h3><p>Afeitado clásico con navaja, espuma y toalla caliente.</p></div>
           <div class="precio">7€</div>
         </article>
         <article class="servicio-card" aria-hidden="true">
           
-          <div class="card-body"><svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-brow"/></svg><h3>Arreglo Cejas</h3><p>Diseño y perfilado de cejas con navaja para un look impecable.</p></div>
+          <div class="card-body"><div class="card-icon">👁️</div><h3>Arreglo Cejas</h3><p>Diseño y perfilado de cejas con navaja para un look impecable.</p></div>
           <div class="precio">5€</div>
         </article>
         <article class="servicio-card" aria-hidden="true">
           
-          <div class="card-body"><svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-strands"/></svg><h3>Mechas</h3><p>Mechas profesionales para darle color y vida a tu cabello.</p></div>
+          <div class="card-body"><div class="card-icon">🎨</div><h3>Mechas</h3><p>Mechas profesionales para darle color y vida a tu cabello.</p></div>
           <div class="precio">25€</div>
         </article>
         <article class="servicio-card" aria-hidden="true">
           
-          <div class="card-body"><svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-sparkle"/></svg><h3>Decolorado</h3><p>Decoloración profesional con los mejores productos.</p></div>
+          <div class="card-body"><div class="card-icon">✨</div><h3>Decolorado</h3><p>Decoloración profesional con los mejores productos.</p></div>
           <div class="precio">25€</div>
         </article>
         <article class="servicio-card" aria-hidden="true">
           
-          <div class="card-body"><svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-dye"/></svg><h3>Tinte</h3><p>Tinte profesional en la gama de colores que mejor te siente.</p></div>
+          <div class="card-body"><div class="card-icon">🖌️</div><h3>Tinte</h3><p>Tinte profesional en la gama de colores que mejor te siente.</p></div>
           <div class="precio">20€</div>
         </article>
 
@@ -841,11 +724,6 @@
           </a>
         </div>
 
-        <a href="https://www.instagram.com/a.m._barberia/" target="_blank" rel="noopener noreferrer" class="reservar-ig" aria-label="Síguenos en Instagram, @a.m._barberia (se abre en una pestaña nueva)">
-          <svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-instagram"/></svg>
-          <span>o síguenos en Instagram <span class="reservar-ig-handle">@a.m._barberia</span></span>
-        </a>
-
         <div class="horario-strip">
           <div class="horario-bloque">
             <span class="horario-dia">Lun – Vie</span>
@@ -884,9 +762,6 @@
               </a>
               <a href="tel:603297315" aria-label="Teléfono Amad Peña Barbershop">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-              </a>
-              <a href="https://www.instagram.com/a.m._barberia/" target="_blank" rel="noopener noreferrer" aria-label="Instagram @a.m._barberia (se abre en una pestaña nueva)">
-                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-instagram"/></svg>
               </a>
             </div>
           </div>
