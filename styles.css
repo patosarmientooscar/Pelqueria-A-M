@@ -51,6 +51,9 @@ ul { list-style: none; }
 
 .gold { color: var(--gold); }
 
+/* Hidden SVG sprite (not display:none — gradients inside must stay resolvable) */
+.svg-sprite { position: absolute; width: 0; height: 0; overflow: hidden; pointer-events: none; }
+
 /* ── SCROLL REVEAL BASE ─────────────────────── */
 .reveal {
   opacity: 0;
@@ -320,6 +323,19 @@ ul { list-style: none; }
   margin-top: 12px;
   border-left: none !important;
 }
+.mobile-menu .mobile-ig {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 4px;
+  font-size: 0.95rem;
+  color: var(--gray-light);
+  border-left: none;
+}
+.mobile-menu .mobile-ig svg { color: var(--gold); flex-shrink: 0; }
+.mobile-menu .mobile-ig span { color: var(--gold); }
+.mobile-menu .mobile-ig:hover { background: rgba(201,168,76,0.1); }
 
 
 /* ══════════════════════════════════════════════
@@ -419,14 +435,59 @@ ul { list-style: none; }
   align-items: center;
   margin-bottom: 2rem;
 }
-.hero-logo-img {
-  height: 200px;
-  width: auto;
-  max-width: 600px;
-  object-fit: contain;
-  mix-blend-mode: screen;
-  filter: drop-shadow(0 0 40px rgba(201,168,76,0.65));
-  margin-bottom: -0.5rem;
+/* Layered hero logo: laurel PNG + real-text wordmark + SVG poles + razor "A" behind the letters */
+.hero-logo {
+  --wm-size: clamp(1.45rem, 6.6vw, 3.3rem);
+  --wm-track: 0.14em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  margin-bottom: clamp(1rem, 2.2vw, 1.6rem);
+  filter: drop-shadow(0 0 26px rgba(201,168,76,0.42));
+}
+.hero-laurel {
+  width: clamp(84px, 8.6vw, 124px);
+  height: auto;
+  margin-bottom: clamp(0.6rem, 1.3vw, 1.1rem);
+}
+.hero-wordmark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.34em;
+  font-size: var(--wm-size);
+  max-width: 100%;
+}
+.barber-pole {
+  flex-shrink: 0;
+  width: 0.34em;
+  height: 1.04em;
+  overflow: visible;
+}
+.wordmark-text {
+  position: relative;
+  z-index: 0;               /* stacking context: razor (z -1) paints under every letter */
+  display: block;
+  font-family: var(--font-head);
+  font-weight: 400;
+  line-height: 1;
+  color: #F6F1E7;
+  letter-spacing: var(--wm-track);
+  margin-right: calc(-1 * var(--wm-track)); /* cancel trailing tracking so the word centres optically */
+  white-space: nowrap;
+}
+.wm-a { position: relative; }
+.wm-razor {
+  position: absolute;
+  z-index: -1;
+  left: calc(50% - var(--wm-track) / 2);
+  bottom: 0.26em;   /* feet sit on the baseline (Cinzel baseline ≈ 0.31em above the inline box bottom) */
+  width: 0.89em;
+  height: 1.17em;   /* pivot + tang rise ~0.3em above the A's apex */
+  transform: translateX(-50%);
+  opacity: 0.92;
+  pointer-events: none;
 }
 
 .hero-divider {
@@ -607,10 +668,16 @@ ul { list-style: none; }
 .card-body { flex: 1; display: flex; flex-direction: column; align-items: center; }
 
 .card-icon {
-  font-size: 2.6rem;
-  margin-bottom: 1rem;
   display: block;
-  filter: drop-shadow(0 0 8px rgba(201,168,76,0.4));
+  width: 42px;
+  height: 42px;
+  margin-bottom: 1.1rem;
+  color: var(--gold);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.15;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 .servicio-card h3 {
   font-family: var(--font-head);
@@ -692,6 +759,21 @@ ul { list-style: none; }
   transition: opacity 0.4s;
 }
 .galeria-item:hover .galeria-caption { opacity: 1; }
+.galeria-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+.galeria-cta .btn-outline {
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  column-gap: 8px;
+  row-gap: 2px;
+}
+.galeria-cta .btn-outline svg { color: var(--gold); flex-shrink: 0; }
+.cta-handle { color: var(--gold); font-weight: 500; }
+
 .galeria-caption span {
   font-family: var(--font-head);
   font-size: 0.95rem;
@@ -847,10 +929,11 @@ ul { list-style: none; }
    RESERVAR / LLAMAR
    ══════════════════════════════════════════════ */
 .reservar {
-  padding: 100px 0;
+  padding: 0;                /* the band (.reservar-inner) carries its own padding; outer padding left empty bands */
   position: relative;
   overflow: hidden;
 }
+.reservar + .footer { border-top: 0; } /* avoid a doubled hairline under the band */
 .reservar-inner {
   background: linear-gradient(135deg, rgba(201,168,76,0.12) 0%, rgba(201,168,76,0.04) 50%, rgba(10,10,10,1) 100%),
               var(--dark);
@@ -915,6 +998,32 @@ ul { list-style: none; }
   transition: var(--transition);
 }
 .btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 10px 36px rgba(37,211,102,0.4); }
+
+/* Instagram: tertiary text link, deliberately quieter than Llamar / WhatsApp */
+.reservar-ig {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: fit-content;
+  max-width: 100%;
+  margin: -1.75rem auto 2.75rem;
+  padding: 10px 6px;
+  font-size: 0.92rem;
+  font-weight: 400;
+  color: var(--gray-light);
+  transition: color 0.3s;
+}
+.reservar-ig svg { color: var(--gold); flex-shrink: 0; }
+.reservar-ig-handle {
+  color: var(--gold);
+  text-decoration: underline;
+  text-decoration-color: rgba(201,168,76,0.35);
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.3s;
+}
+.reservar-ig:hover { color: var(--white); }
+.reservar-ig:hover .reservar-ig-handle { text-decoration-color: var(--gold); }
 
 .horario-strip {
   display: flex;
@@ -1034,17 +1143,26 @@ ul { list-style: none; }
   flex-direction: column;
   gap: 2px;
 }
+.stat-value {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.12em;
+  white-space: nowrap;
+  line-height: 1;
+}
 .stat-n {
   font-family: var(--font-head);
   font-size: 2.2rem;
   font-weight: 700;
   color: var(--gold);
   line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 .stat-suffix {
   font-family: var(--font-head);
   font-size: 1.4rem;
   color: var(--gold);
+  line-height: 1;
 }
 .stat-l {
   font-size: 0.8rem;
@@ -1110,6 +1228,8 @@ ul { list-style: none; }
   color: var(--gold);
   transform: translateY(-3px);
 }
+
+.footer-contact { font-style: normal; } /* <address> is italic by default */
 
 .footer-nav h3,
 .footer-services h3,
@@ -1194,6 +1314,13 @@ ul { list-style: none; }
   transform: scale(1.12) translateY(-4px);
   box-shadow: 0 8px 36px rgba(201,168,76,0.6);
 }
+/* Hidden while the hero (and its "Descubre más" cue) is on screen — toggled in script.js */
+.float-btn.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(16px) scale(0.9);
+}
 
 .float-ripple {
   position: absolute;
@@ -1233,6 +1360,16 @@ ul { list-style: none; }
   .servicios-marquee-track { gap: 18px; }
 }
 
+/* ── NARROW TABLET (≤900px): six links + CTA must stay on one line ── */
+@media (max-width: 900px) {
+  .nav-container { gap: 16px; }
+  .nav-links li { flex-shrink: 0; }
+  .nav-links a { padding: 8px 7px; font-size: 0.84rem; white-space: nowrap; }
+  .nav-links a::after { left: 7px; right: 7px; }
+  .nav-cta { padding: 10px 14px !important; }
+  .nav-logo img { height: 46px; }
+}
+
 /* ── MOBILE (≤768px) ───────────────────────── */
 @media (max-width: 768px) {
 
@@ -1245,7 +1382,7 @@ ul { list-style: none; }
 
   /* Hero */
   .hero { padding: 100px 16px 60px; min-height: 100svh; }
-  .hero-logo-img { height: 160px; max-width: 90vw; }
+  .hero-logo { --wm-track: 0.12em; }
   .hero-title { font-size: clamp(1.7rem, 7vw, 2.8rem); }
   .hero-brand { margin-bottom: 1.5rem; }
   .hero-sub { font-size: 0.8rem; letter-spacing: 0.18em; margin-bottom: 1.8rem; }
@@ -1259,8 +1396,7 @@ ul { list-style: none; }
   .galeria,
   .nosotros,
   .servicios,
-  .reviews,
-  .reservar { padding: 64px 0; }
+  .reviews { padding: 64px 0; }
   .section-title { font-size: clamp(1.6rem, 6vw, 2.4rem); }
   .section-desc { font-size: 0.9rem; }
 
@@ -1315,7 +1451,11 @@ ul { list-style: none; }
 
   .nav-logo img { height: 38px; }
 
-  .hero-logo-img { height: 130px; }
+  .hero-laurel { width: 80px; }
+
+  .galeria-cta .btn-outline { padding: 14px 24px; font-size: 0.95rem; }
+  .galeria-cta .cta-handle { flex-basis: 100%; }
+  .galeria-cta .cta-sep { display: none; }
   .hero-title { font-size: clamp(1.5rem, 8vw, 2rem); }
   .hero-sub { font-size: 0.72rem; letter-spacing: 0.12em; }
 
@@ -1334,6 +1474,7 @@ ul { list-style: none; }
 /* ── LANDSCAPE PHONE ───────────────────────── */
 @media (max-width: 768px) and (orientation: landscape) {
   .hero { min-height: auto; padding: 80px 16px 48px; }
-  .hero-logo-img { height: 110px; }
+  .hero-laurel { width: 68px; margin-bottom: 0.4rem; }
+  .hero-logo { --wm-size: 1.6rem; margin-bottom: 0.9rem; }
   .hero-title { font-size: 1.6rem; }
 }
